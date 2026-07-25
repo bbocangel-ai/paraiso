@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paraíso — 1.732 ha ganaderas · Ipías, Santa Cruz</title>
+<meta name="description" content="Propiedad ganadera de 1.732,14 ha en el municipio de Ipías, Santa Cruz. 550 ha de pastura sembrada, cinco atajados, dos pozos perforados, 7,1 km de red de agua, corral con cepo y balanza, energía CRE. Documentación en regla.">
+<meta property="og:title" content="Paraíso — 1.732 ha ganaderas · Ipías, Santa Cruz">
+<meta property="og:description" content="550 ha de pastura sembrada, agua distribuida a los potreros, corral con cepo y balanza, energía CRE. Documentación en regla.">
+<meta property="og:image" content="img/aerea-monte.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#edeae0;
+  --paper-2:#e3dfd2;
+  --ink:#1a1f1a;
+  --ink-2:#565c50;
+  --rule:#bdb8a6;
+  --rojo:#a33f26;
+  --oscuro:#16211a;
+  --claro:#f4f2ea;
+
+  --disp:"Archivo",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --gut:clamp(1.15rem,4.5vw,3.5rem);
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:1rem;line-height:1.62;font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+figure{margin:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+
+/* etiquetas técnicas */
+.lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.h{font-family:var(--disp);font-weight:600;font-variation-settings:"wdth" 100;
+  letter-spacing:-.005em;line-height:1.1;margin:0;font-size:clamp(1.35rem,1.1rem + .9vw,1.7rem)}
+
+/* ---------- portada ---------- */
+.cover{background:var(--oscuro);color:var(--claro)}
+.cover__grid{display:grid}
+.cover__foto{position:relative;order:-1}
+.cover__foto img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.cover__txt{padding:clamp(1.9rem,5vw,3rem) var(--gut)}
+.cover__txt .lbl{color:#c6c1ae;display:block;margin-bottom:1rem}
+.cover h1{font-family:var(--disp);font-weight:700;font-variation-settings:"wdth" 112;
+  text-transform:uppercase;font-size:clamp(2.5rem,10vw,4.4rem);line-height:.92;
+  letter-spacing:-.015em;margin:0 0 .6rem}
+.cover p{margin:0;font-size:clamp(1.02rem,.95rem + .3vw,1.2rem);color:#ddd8c8;max-width:26ch}
+.cover__pie{display:flex;gap:clamp(1.2rem,4vw,2.75rem);flex-wrap:wrap;
+  margin-top:clamp(1.5rem,4vw,2.25rem);padding-top:1.1rem;border-top:1px solid #33452f}
+.cover__pie div .lbl{color:#98a292;margin:0 0 .3rem}
+.cover__pie div b{font-family:var(--disp);font-weight:600;font-variation-settings:"wdth" 100;
+  font-variant-numeric:tabular-nums;font-size:1.12rem;letter-spacing:-.01em}
+
+@media(min-width:860px){
+  .cover{padding-inline:0}
+  .cover__grid{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:stretch;
+    min-height:min(72svh,640px)}
+  .cover__foto{order:0}
+  .cover__foto img{height:100%;aspect-ratio:auto;min-height:100%}
+  .cover__txt{display:flex;flex-direction:column;justify-content:flex-end;
+    padding:clamp(2.5rem,4vw,3.5rem) clamp(2rem,3.5vw,3.25rem) clamp(2.5rem,4vw,3.5rem)
+      max(var(--gut), calc((100vw - var(--maxw))/2 + var(--gut)))}
+}
+
+/* ---------- ficha (elemento firma) ---------- */
+.ficha{padding-block:clamp(2.75rem,7vw,4.5rem)}
+.ficha__head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  flex-wrap:wrap;border-bottom:1.5px solid var(--rojo);padding-bottom:.65rem;margin-bottom:.4rem}
+.grupo{margin-top:clamp(1.75rem,4vw,2.5rem)}
+.grupo>.lbl{color:var(--rojo);display:block;margin-bottom:.35rem}
+.row{display:flex;align-items:baseline;gap:.55rem;padding:.5rem 0;
+  border-bottom:1px solid color-mix(in srgb,var(--rule) 55%,transparent)}
+.row .k{flex:0 1 auto}
+.row .k.sub{padding-left:1.1rem;color:var(--ink-2);font-size:.94em}
+.row .dots{flex:1 1 auto;min-width:1.5rem;border-bottom:1px dotted var(--rule);
+  transform:translateY(-.3em)}
+.row .v{flex:0 0 auto;font-family:var(--disp);font-weight:600;font-variation-settings:"wdth" 100;
+  font-variant-numeric:tabular-nums;white-space:nowrap;font-size:1.02em}
+.row .v em{font-style:normal;font-family:var(--body);font-weight:400;font-size:.94em}
+
+.nota{margin-top:clamp(1.75rem,4vw,2.5rem);font-size:.94rem;color:var(--ink-2);max-width:52ch}
+
+/* ---------- barra de reparto ---------- */
+.reparto{margin-top:clamp(2rem,5vw,2.75rem)}
+.medida{display:flex;height:14px;border:1px solid var(--ink)}
+.medida i{display:block}
+.medida .a{background:var(--ink);flex:0 0 31.75%}
+.medida .b{background:transparent;flex:1;border-left:1px solid var(--ink)}
+.medida__pies{display:flex;justify-content:space-between;margin-top:.5rem}
+
+/* ---------- bandas ---------- */
+.banda{padding-block:clamp(2.75rem,7vw,4.5rem);border-top:1px solid var(--rule)}
+.banda__head{display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;flex-wrap:wrap;margin-bottom:clamp(1.4rem,3.5vw,2rem)}
+.oscuro{background:var(--oscuro);color:var(--claro);border-top:0}
+.oscuro .lbl{color:#a8b0a2}
+
+/* planos y fotos */
+.planos{display:grid;gap:clamp(.85rem,2.2vw,1.25rem)}
+@media(min-width:720px){.planos{grid-template-columns:1fr 1fr}
+  .planos figure.ancho{grid-column:1/-1}}
+.fotos{display:grid;gap:clamp(.85rem,2.2vw,1.25rem);grid-template-columns:repeat(2,1fr)}
+.fotos figure.ancho{grid-column:1/-1}
+
+.pieza img{width:100%;object-fit:cover;background:var(--oscuro)}
+.pieza figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-2);padding-top:.55rem}
+.oscuro .pieza figcaption{color:#a8b0a2}
+.r43 img{aspect-ratio:4/3}
+.r11 img{aspect-ratio:1/1}
+@media(min-width:720px){.r11 img{aspect-ratio:4/3}}
+
+/* ---------- contacto ---------- */
+.contacto{background:var(--oscuro);color:var(--claro);padding-block:clamp(3rem,8vw,5rem)}
+.contacto .lbl{color:#a8b0a2}
+.contacto h2{font-family:var(--disp);font-weight:600;font-variation-settings:"wdth" 108;
+  font-size:clamp(1.6rem,1.2rem + 1.8vw,2.4rem);line-height:1.15;margin:.9rem 0 0;max-width:18ch}
+.contacto p{max-width:46ch;color:#cfcabb;margin:.9rem 0 0}
+.btn{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.9rem;min-height:52px;
+  background:var(--rojo);color:#fff;text-decoration:none;font-family:var(--mono);
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:.95rem 1.7rem;
+  border:1.5px solid var(--rojo);transition:background .16s ease,color .16s ease}
+.btn:hover,.btn:focus-visible{background:transparent;color:#e0806a}
+.btn svg{width:19px;height:19px;fill:currentColor;flex:none}
+
+.flota{position:fixed;right:clamp(.9rem,3vw,1.6rem);bottom:clamp(.9rem,3vw,1.6rem);z-index:50;
+  width:54px;height:54px;border-radius:50%;background:var(--rojo);color:#fff;
+  display:grid;place-items:center;box-shadow:0 4px 16px rgba(20,25,18,.32);
+  text-decoration:none;transition:transform .16s ease}
+.flota:hover,.flota:focus-visible{transform:scale(1.06)}
+.flota svg{width:26px;height:26px;fill:currentColor}
+
+footer{background:var(--oscuro);color:#8f978b;border-top:1px solid #253328;padding-block:1.6rem}
+footer .wrap{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+
+a{color:var(--rojo)}
+:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+.oscuro :focus-visible,.contacto :focus-visible{outline-color:#e0806a}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover__grid">
+    <div class="cover__txt">
+      <span class="lbl">En venta · Municipio de Ipías, Santa Cruz</span>
+      <h1>Paraíso</h1>
+      <p>Propiedad ganadera de 1.732,14 hectáreas</p>
+      <div class="cover__pie">
+        <div><span class="lbl">Pastura sembrada</span><b>550 ha</b></div>
+        <div><span class="lbl">Desde Ipías</span><b>25 km</b></div>
+        <div><span class="lbl">Precio</span><b>A consulta</b></div>
+      </div>
+    </div>
+    <figure class="cover__foto">
+      <img src="img/aerea-monte.jpg" alt="Vista aérea de la propiedad Paraíso: monte, caminos internos y el campamento al centro, con la serranía al fondo." fetchpriority="high">
+    </figure>
+  </div>
+</header>
+
+<!-- ===== FICHA ===== -->
+<main>
+<section class="ficha">
+  <div class="wrap">
+    <div class="ficha__head">
+      <h2 class="h">Ficha de la propiedad</h2>
+      <span class="lbl">Ipías · Santa Cruz · Bolivia</span>
+    </div>
+
+    <div class="grupo">
+      <span class="lbl">Superficie</span>
+      <div class="row"><span class="k">Superficie total titulada</span><span class="dots"></span><span class="v">1.732,14 ha</span></div>
+      <div class="row"><span class="k">Pastura sembrada</span><span class="dots"></span><span class="v">550 ha</span></div>
+      <div class="row"><span class="k sub">Potreros delanteros</span><span class="dots"></span><span class="v">250 ha</span></div>
+      <div class="row"><span class="k sub">Potreros de fondo</span><span class="dots"></span><span class="v">300 ha</span></div>
+      <div class="row"><span class="k">Monte</span><span class="dots"></span><span class="v">1.182 ha</span></div>
+
+      <div class="reparto">
+        <div class="medida" role="img" aria-label="550 de 1.732 hectáreas están sembradas con pastura; las 1.182 restantes son monte.">
+          <i class="a"></i><i class="b"></i>
+        </div>
+        <div class="medida__pies">
+          <span class="lbl">550 ha sembradas</span>
+          <span class="lbl">1.182 ha de monte</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <span class="lbl">Agua</span>
+      <div class="row"><span class="k">Pozos perforados</span><span class="dots"></span><span class="v">2 <em>· 150 m y 100 m</em></span></div>
+      <div class="row"><span class="k">Bombas impulsoras</span><span class="dots"></span><span class="v">2</span></div>
+      <div class="row"><span class="k">Atajados</span><span class="dots"></span><span class="v">5</span></div>
+      <div class="row"><span class="k">Bebederos</span><span class="dots"></span><span class="v">5 <em>· 3.000 L c/u</em></span></div>
+      <div class="row"><span class="k">Red de politubo a las plazas</span><span class="dots"></span><span class="v">7,1 km</span></div>
+    </div>
+
+    <div class="grupo">
+      <span class="lbl">Campamento e infraestructura</span>
+      <div class="row"><span class="k">Vivienda de encargado</span><span class="dots"></span><span class="v">1</span></div>
+      <div class="row"><span class="k">Vivienda de trabajador</span><span class="dots"></span><span class="v">1</span></div>
+      <div class="row"><span class="k">Corral</span><span class="dots"></span><span class="v"><em>cepo, balanza y divisiones</em></span></div>
+      <div class="row"><span class="k">Energía</span><span class="dots"></span><span class="v"><em>CRE monofásica</em></span></div>
+      <div class="row"><span class="k">Alambrado</span><span class="dots"></span><span class="v"><em>potreros divididos</em></span></div>
+    </div>
+
+    <div class="grupo">
+      <span class="lbl">Acceso y situación</span>
+      <div class="row"><span class="k">Distancia desde Ipías</span><span class="dots"></span><span class="v">25 km</span></div>
+      <div class="row"><span class="k">Documentación</span><span class="dots"></span><span class="v"><em>título y plano en regla</em></span></div>
+      <div class="row"><span class="k">Alcance de la venta</span><span class="dots"></span><span class="v"><em>propiedad completa</em></span></div>
+      <div class="row"><span class="k">Precio</span><span class="dots"></span><span class="v"><em>a consulta</em></span></div>
+    </div>
+
+    <p class="nota">La venta comprende la tierra y todas sus mejoras. La propiedad se encuentra actualmente arrendada; la fecha de entrega se conversa con el comprador.</p>
+  </div>
+</section>
+
+<!-- ===== PLANOS ===== -->
+<section class="banda oscuro">
+  <div class="wrap">
+    <div class="banda__head">
+      <h2 class="h">Planos</h2>
+      <span class="lbl">Perímetro y potreros</span>
+    </div>
+    <div class="planos">
+      <figure class="pieza ancho">
+        <img src="img/mapa-general.jpg" alt="Plano general de la propiedad: perímetro titulado marcado en rojo, con los potreros delanteros en naranja junto al campamento y los potreros de fondo en blanco.">
+        <figcaption>Perímetro titulado — 1.732,14 ha</figcaption>
+      </figure>
+      <figure class="pieza">
+        <img src="img/potreros-delanteros.jpg" alt="Plano de los potreros delanteros, 250 hectáreas contiguas al campamento.">
+        <figcaption>Potreros delanteros — 250 ha</figcaption>
+      </figure>
+      <figure class="pieza">
+        <img src="img/potreros-fondo.jpg" alt="Plano de los potreros de fondo, 300 hectáreas en parcelas paralelas con dos puntos de agua marcados.">
+        <figcaption>Potreros de fondo — 300 ha · 2 puntos de agua</figcaption>
+      </figure>
+      <figure class="pieza ancho">
+        <img src="img/acceso.jpg" alt="Plano del camino de acceso que une Ipías con la propiedad Paraíso.">
+        <figcaption>Acceso — Ipías a Paraíso, 25 km</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOTOS ===== -->
+<section class="banda">
+  <div class="wrap">
+    <div class="banda__head">
+      <h2 class="h">Registro fotográfico</h2>
+      <span class="lbl">Julio 2026</span>
+    </div>
+    <div class="fotos">
+      <figure class="pieza ancho r43">
+        <img src="img/aerea-potreros.jpg" alt="Potreros vistos desde el aire, con el camino interno y las divisiones de alambrado." loading="lazy">
+        <figcaption>Potreros y camino interno</figcaption>
+      </figure>
+      <figure class="pieza r11">
+        <img src="img/aerea-corral.jpg" alt="Corral techado con divisiones de aparte y, a un costado, las viviendas del campamento." loading="lazy">
+        <figcaption>Corral y campamento</figcaption>
+      </figure>
+      <figure class="pieza r11">
+        <img src="img/casco.jpg" alt="Vivienda del campamento, con galería techada al frente." style="object-position:center 60%" loading="lazy">
+        <figcaption>Vivienda</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== CONTACTO ===== -->
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <span class="lbl">Contacto</span>
+    <h2>Consultas y visitas al campo</h2>
+    <p>Se envía el plano y la documentación a quien lo solicite. Las visitas se coordinan con fecha previa.</p>
+    <!-- REEMPLAZAR 591XXXXXXXX por el número real (formato internacional, sin + ni espacios) -->
+    <a class="btn" href="https://wa.me/591XXXXXXXX?text=Hola%2C%20vi%20la%20ficha%20de%20la%20propiedad%20Para%C3%ADso%20en%20Ip%C3%ADas%20y%20quiero%20consultar." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.18c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.59-2.9-1.25-4.8-4.17-4.94-4.36-.15-.19-1.19-1.58-1.19-3.01 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.15.46.12.63-.07.17-.19.72-.85.92-1.14.19-.29.39-.24.65-.14.27.09 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="lbl">Paraíso — Ipías, Santa Cruz</span>
+    <span class="lbl">1.732,14 ha · Venta directa</span>
+  </div>
+</footer>
+
+<a class="flota" href="https://wa.me/591XXXXXXXX?text=Hola%2C%20vi%20la%20ficha%20de%20la%20propiedad%20Para%C3%ADso%20en%20Ip%C3%ADas%20y%20quiero%20consultar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.18c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.59-2.9-1.25-4.8-4.17-4.94-4.36-.15-.19-1.19-1.58-1.19-3.01 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.15.46.12.63-.07.17-.19.72-.85.92-1.14.19-.29.39-.24.65-.14.27.09 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+</a>
+</body>
+</html>
