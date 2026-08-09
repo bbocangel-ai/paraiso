@@ -470,15 +470,22 @@ a{color:var(--rojo)}
     document.querySelectorAll('.fotos, .planos').forEach(function(grid){
       [].slice.call(grid.children).forEach(function(fig,i){ fig.style.transitionDelay=(i*0.07)+'s'; });
     });
-    var targets=document.querySelectorAll('.ficha__head, .ficha .grupo, .nota, .banda__head, .banda .grupo>.lbl, .pieza, .contacto .wrap, .reparto');
-    if('IntersectionObserver' in window){
-      var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-      },{rootMargin:'0px 0px -8% 0px', threshold:0.08});
-      targets.forEach(function(t){ io.observe(t); });
-    } else {
-      targets.forEach(function(t){ t.classList.add('in'); });
+    var targets=[].slice.call(document.querySelectorAll('.ficha__head, .ficha .grupo, .nota, .banda__head, .banda .grupo>.lbl, .pieza, .contacto .wrap, .reparto'));
+    var pending=targets.slice();
+    function reveal(){
+      var vh=window.innerHeight||document.documentElement.clientHeight;
+      pending=pending.filter(function(t){
+        var r=t.getBoundingClientRect();
+        if(r.top < vh*0.9 && r.bottom > 0){ t.classList.add('in'); return false; }
+        return true;
+      });
+      if(!pending.length){ window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); }
     }
+    var ticking=false;
+    function onScroll(){ if(ticking) return; ticking=true; requestAnimationFrame(function(){ ticking=false; reveal(); }); }
+    reveal();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
   }catch(e){ document.documentElement.classList.remove('js-anim'); }
 })();
 </script>
