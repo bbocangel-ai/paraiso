@@ -146,7 +146,68 @@ footer .wrap{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap
 a{color:var(--rojo)}
 :focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
 .oscuro :focus-visible,.contacto :focus-visible{outline-color:#e0806a}
+
+/* ===== movimiento e interactividad (mejora progresiva) ===== */
+/* Solo se oculta si el JS está activo (html.js-anim); si el JS falla, todo queda visible. */
+@media (prefers-reduced-motion:no-preference){
+  html.js-anim .ficha__head,
+  html.js-anim .ficha .grupo,
+  html.js-anim .nota,
+  html.js-anim .banda__head,
+  html.js-anim .banda .grupo>.lbl,
+  html.js-anim .pieza,
+  html.js-anim .contacto .wrap{
+    opacity:0;transform:translateY(20px);
+    transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+  html.js-anim .ficha__head.in,
+  html.js-anim .ficha .grupo.in,
+  html.js-anim .nota.in,
+  html.js-anim .banda__head.in,
+  html.js-anim .banda .grupo>.lbl.in,
+  html.js-anim .pieza.in,
+  html.js-anim .contacto .wrap.in{opacity:1;transform:none}
+
+  /* barra de reparto: se llena al entrar en vista */
+  html.js-anim .medida .a{transition:flex-basis 1.1s cubic-bezier(.22,.61,.36,1) .2s}
+  html.js-anim .reparto:not(.in) .medida .a{flex-basis:0}
+
+  /* portada: el texto entra escalonado al cargar */
+  html.js-anim .cover__txt>*{opacity:0;animation:cover-up .8s cubic-bezier(.22,.61,.36,1) forwards}
+  html.js-anim .cover__txt>*:nth-child(1){animation-delay:.15s}
+  html.js-anim .cover__txt>*:nth-child(2){animation-delay:.28s}
+  html.js-anim .cover__txt>*:nth-child(3){animation-delay:.41s}
+  html.js-anim .cover__txt>*:nth-child(4){animation-delay:.54s}
+}
+@keyframes cover-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* fotos: zoom suave al pasar el mouse (solo dispositivos con hover) */
+.pieza{overflow:hidden}
+.pieza img{cursor:zoom-in;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.pieza figcaption{position:relative;z-index:1;background:var(--paper)}
+.oscuro .pieza figcaption{background:var(--oscuro)}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .pieza:hover img{transform:scale(1.045)}
+}
+
+/* lightbox — ampliar foto al tocarla */
+.lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  padding:clamp(1rem,4vw,3rem);background:rgba(11,15,11,.93);opacity:0;transition:opacity .25s ease}
+.lightbox.open{display:flex}
+.lightbox.show{opacity:1}
+.lightbox__fig{margin:0;max-width:min(1100px,100%);display:flex;flex-direction:column;gap:.7rem}
+.lightbox__fig img{width:100%;max-height:82vh;object-fit:contain;background:var(--oscuro);cursor:auto}
+.lightbox__fig figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:#cfcabb;text-align:center;margin:0}
+.lightbox__close{position:absolute;top:clamp(.5rem,2vw,1.1rem);right:clamp(.6rem,2.5vw,1.3rem);
+  width:46px;height:46px;border:0;border-radius:50%;background:transparent;color:#fff;
+  font-size:2rem;line-height:1;cursor:pointer;transition:background .16s ease}
+.lightbox__close:hover,.lightbox__close:focus-visible{background:rgba(255,255,255,.14)}
+@media (prefers-reduced-motion:no-preference){
+  .lightbox.show .lightbox__fig{animation:lb-in .35s cubic-bezier(.22,.61,.36,1)}
+}
+@keyframes lb-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
 </style>
+<script>document.documentElement.classList.add('js-anim');window.__af=setTimeout(function(){document.documentElement.classList.remove('js-anim')},2600);</script>
 </head>
 <body>
 
@@ -354,5 +415,72 @@ a{color:var(--rojo)}
 <a class="flota" href="https://wa.me/59175533557?text=Hola%2C%20vi%20la%20ficha%20de%20la%20propiedad%20Para%C3%ADso%20en%20Ip%C3%ADas%20y%20quiero%20consultar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.18c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.59-2.9-1.25-4.8-4.17-4.94-4.36-.15-.19-1.19-1.58-1.19-3.01 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.15.46.12.63-.07.17-.19.72-.85.92-1.14.19-.29.39-.24.65-.14.27.09 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
 </a>
+
+<!-- lightbox para ampliar fotos -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="lightbox__close" type="button" aria-label="Cerrar">&times;</button>
+  <figure class="lightbox__fig">
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </figure>
+</div>
+
+<script>
+(function(){
+  try{
+    clearTimeout(window.__af);
+    var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+    /* ----- lightbox ----- */
+    var lb=document.getElementById('lightbox'),
+        lbImg=lb.querySelector('img'),
+        lbCap=lb.querySelector('figcaption'),
+        lbClose=lb.querySelector('.lightbox__close'),
+        lastFocus=null;
+    function openLB(src,alt,cap){
+      lastFocus=document.activeElement;
+      lbImg.src=src; lbImg.alt=alt||''; lbCap.textContent=cap||'';
+      lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      requestAnimationFrame(function(){ lb.classList.add('show'); });
+      lbClose.focus();
+    }
+    function closeLB(){
+      lb.classList.remove('show'); lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      var done=function(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); };
+      if(reduce){ done(); }
+      else{ var t=setTimeout(done,300); lb.addEventListener('transitionend',function(){ clearTimeout(t); done(); },{once:true}); }
+      if(lastFocus&&lastFocus.focus) lastFocus.focus();
+    }
+    document.querySelectorAll('.pieza').forEach(function(fig){
+      var img=fig.querySelector('img'); if(!img) return;
+      fig.setAttribute('role','button'); fig.setAttribute('tabindex','0');
+      function go(){ var c=fig.querySelector('figcaption'); openLB(img.currentSrc||img.src, img.alt, c?c.textContent:''); }
+      fig.addEventListener('click',go);
+      fig.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+    });
+    lbClose.addEventListener('click',function(e){ e.stopPropagation(); closeLB(); });
+    lb.addEventListener('click',function(){ closeLB(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) closeLB(); });
+
+    if(reduce) return;
+
+    /* ----- reveal al hacer scroll ----- */
+    document.querySelectorAll('.fotos, .planos').forEach(function(grid){
+      [].slice.call(grid.children).forEach(function(fig,i){ fig.style.transitionDelay=(i*0.07)+'s'; });
+    });
+    var targets=document.querySelectorAll('.ficha__head, .ficha .grupo, .nota, .banda__head, .banda .grupo>.lbl, .pieza, .contacto .wrap, .reparto');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      },{rootMargin:'0px 0px -8% 0px', threshold:0.08});
+      targets.forEach(function(t){ io.observe(t); });
+    } else {
+      targets.forEach(function(t){ t.classList.add('in'); });
+    }
+  }catch(e){ document.documentElement.classList.remove('js-anim'); }
+})();
+</script>
 </body>
 </html>
