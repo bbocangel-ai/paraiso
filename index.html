@@ -473,19 +473,18 @@ a{color:var(--rojo)}
     var targets=[].slice.call(document.querySelectorAll('.ficha__head, .ficha .grupo, .nota, .banda__head, .banda .grupo>.lbl, .pieza, .contacto .wrap, .reparto'));
     var pending=targets.slice();
     function reveal(){
-      var vh=window.innerHeight||document.documentElement.clientHeight;
+      var vh=window.innerHeight||document.documentElement.clientHeight||0;
       pending=pending.filter(function(t){
+        if(!vh){ t.classList.add('in'); return false; }
         var r=t.getBoundingClientRect();
         if(r.top < vh*0.9 && r.bottom > 0){ t.classList.add('in'); return false; }
         return true;
       });
-      if(!pending.length){ window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); }
+      if(!pending.length){ window.removeEventListener('scroll',reveal); window.removeEventListener('resize',reveal); }
     }
-    var ticking=false;
-    function onScroll(){ if(ticking) return; ticking=true; requestAnimationFrame(function(){ ticking=false; reveal(); }); }
     reveal();
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll,{passive:true});
+    window.addEventListener('scroll',reveal,{passive:true});
+    window.addEventListener('resize',reveal,{passive:true});
   }catch(e){ document.documentElement.classList.remove('js-anim'); }
 })();
 </script>
