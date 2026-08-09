@@ -436,21 +436,23 @@ a{color:var(--rojo)}
         lbImg=lb.querySelector('img'),
         lbCap=lb.querySelector('figcaption'),
         lbClose=lb.querySelector('.lightbox__close'),
-        lastFocus=null;
+        lastFocus=null, closeTimer=null;
     function openLB(src,alt,cap){
+      clearTimeout(closeTimer);
       lastFocus=document.activeElement;
       lbImg.src=src; lbImg.alt=alt||''; lbCap.textContent=cap||'';
       lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
       document.body.style.overflow='hidden';
-      requestAnimationFrame(function(){ lb.classList.add('show'); });
+      void lb.offsetHeight;               /* fuerza reflow para que el fade-in anime, sin depender de rAF */
+      lb.classList.add('show');
       lbClose.focus();
     }
     function closeLB(){
+      if(!lb.classList.contains('open')) return;
       lb.classList.remove('show'); lb.setAttribute('aria-hidden','true');
       document.body.style.overflow='';
-      var done=function(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); };
-      if(reduce){ done(); }
-      else{ var t=setTimeout(done,300); lb.addEventListener('transitionend',function(){ clearTimeout(t); done(); },{once:true}); }
+      clearTimeout(closeTimer);
+      closeTimer=setTimeout(function(){ lb.classList.remove('open'); lbImg.removeAttribute('src'); }, reduce?0:320);
       if(lastFocus&&lastFocus.focus) lastFocus.focus();
     }
     document.querySelectorAll('.pieza').forEach(function(fig){
